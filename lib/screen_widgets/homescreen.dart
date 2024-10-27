@@ -11,8 +11,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var input;
   var output;
-  setstate() {
-    output = input;
+  List numb = [];
+  inputTeak(var value) {
+    setState(() {
+      for (var val in value as List) {
+        numb.add(val);
+      }
+    });
   }
 
   @override
@@ -36,24 +41,27 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               width: double.infinity,
-              height: 230,
+              height: 200,
               // color: Colors.white,
               decoration: const BoxDecoration(),
               child: Align(
                 alignment: Alignment.bottomRight,
-                child: output == null
+                child: input == null
                     ? const SizedBox()
                     : Text(
-                        output.toString(),
-                        style: const TextStyle(fontSize: 60),
+                        input.toString(),
+                        style: const TextStyle(
+                          fontSize: 60,
+                        ),
                       ),
               ),
             ),
+            const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 buttonsWidget(() {
-                  
+                  setState(() {});
                 }, "C", Colors.amber, Colors.black),
                 buttonsWidget(() {}, "⌫", Colors.white54, Colors.black),
                 buttonsWidget(() {}, "%"),
@@ -63,29 +71,44 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                buttonsWidget(() {}, "7"),
-                buttonsWidget(() {}, "8"),
-                buttonsWidget(() {}, "9"),
+                buttonsWidget(() {
+                  inputTeak("7");
+                }, "7"),
+                buttonsWidget(() {
+                  inputTeak("8");
+                }, "8"),
+                buttonsWidget(() {
+                  inputTeak("9");
+                }, "9"),
                 buttonsWidget(() {}, "X"),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                buttonsWidget(() {}, "4"),
-                buttonsWidget(() {}, "5"),
-                buttonsWidget(() {}, "6"),
+                buttonsWidget(() {
+                  inputTeak(4);
+                }, "4"),
+                buttonsWidget(() {
+                  inputTeak(5);
+                }, "5"),
+                buttonsWidget(() {
+                  inputTeak(6);
+                }, "6"),
                 buttonsWidget(() {}, "-"),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                buttonsWidget(() {}, "3"),
-                buttonsWidget(() {}, "2"),
                 buttonsWidget(() {
-                  input = 1;
-                  setstate();
+                  inputTeak(3);
+                }, "3"),
+                buttonsWidget(() {
+                  inputTeak(2);
+                }, "2"),
+                buttonsWidget(() {
+                  inputTeak(1);
                 }, "1"),
                 buttonsWidget(() {}, "+"),
               ],
@@ -93,9 +116,15 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                buttonsWidget(() {}, "00"),
-                buttonsWidget(() {}, "0"),
-                buttonsWidget(() {}, "."),
+                buttonsWidget(() {
+                  inputTeak("00");
+                }, "00"),
+                buttonsWidget(() {
+                  inputTeak(0);
+                }, "0"),
+                buttonsWidget(() {
+                  inputTeak(".");
+                }, "."),
                 buttonsWidget(() {}, "=", Colors.white54, Colors.black),
               ],
             )
