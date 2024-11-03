@@ -13,6 +13,10 @@ class SplashScreen extends StatelessWidget {
   add(){
     // TODO: remive this
   }
+  
+  remove() {
+    //
+  }
 
   @override
   Widget build(BuildContext context) {
