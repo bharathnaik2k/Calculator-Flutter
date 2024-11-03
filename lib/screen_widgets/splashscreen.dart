@@ -9,40 +9,6 @@ class SplashScreen extends StatelessWidget {
     });
   }
 
-  remove() {
-    //
-  }
-
-
-  remove() {
-    // a hello 
-  }
-
-  _naviScreen2(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  _naviScreen3(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  _naviScreen4(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  // hiujghghjgjhg 
-  // asdfghjklrtyui
-  // fggfhgf hgfghfKJLJL
-
   @override
   Widget build(BuildContext context) {
     _naviScreen(context);
