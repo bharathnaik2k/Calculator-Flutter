@@ -9,9 +9,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   inputTeak(var value) {
     if (input1.text.isEmpty) {
-      setState(() {
+    
         input1.text = value;
-      });
+    
     } else {}
   }
 
