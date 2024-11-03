@@ -9,6 +9,10 @@ class SplashScreen extends StatelessWidget {
     });
   }
 
+  remove() {
+    //
+  }
+
   @override
   Widget build(BuildContext context) {
     _naviScreen(context);
