@@ -1,42 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
-
-  _naviScreen(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-  remove() {
-    //
-  }
-
-
-  
-  _naviScreen22222(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  _naviScreen3(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  _naviScreen4(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushReplacementNamed("/HomeScreen");
-    });
-  }
-
-
-  // hiujghghjgjhg 
+  const SplashScreen({super.key}); 
 
   @override
   Widget build(BuildContext context) {
