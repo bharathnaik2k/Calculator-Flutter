@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   add(){
     // TODO: remive this
   }
-  
+
   remove() {
     //
   }
