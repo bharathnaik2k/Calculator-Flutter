@@ -9,16 +9,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // int
   var input;
   var output;
-  List numb = [];
+
+  TextEditingController input1 = TextEditingController();
+  TextEditingController input2 = TextEditingController();
+
   inputTeak(var value) {
-    setState(() {
-      for (var val in value as List) {
-        numb.add(val);
-      }
-    });
+    if (input1.text.isEmpty) {
+      setState(() {
+        input1.text = value;
+      });
+    } else {}
   }
+
+  // void equalPressed() {
+  //   String finaluserinput = userInput;
+  //   finaluserinput = userInput.replaceAll('x', '*');
+
+  //   Parser p = Parser();
+  //   Expression exp = p.parse(finaluserinput);
+  //   ContextModel cm = ContextModel();
+  //   double eval = exp.evaluate(EvaluationType.REAL, cm);
+  //   answer = eval.toString();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              width: double.infinity,
-              height: 200,
-              // color: Colors.white,
-              decoration: const BoxDecoration(),
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: input == null
-                    ? const SizedBox()
-                    : Text(
-                        input.toString(),
-                        style: const TextStyle(
-                          fontSize: 60,
-                        ),
-                      ),
-              ),
-            ),
+                width: double.infinity,
+                height: 200,
+                decoration: const BoxDecoration(),
+                child: AppButton(
+                  input1: input1.text,
+                )),
             const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 buttonsWidget(() {
-                  inputTeak(4);
+                  inputTeak("4");
                 }, "4"),
                 buttonsWidget(() {
                   inputTeak(5);
@@ -129,6 +134,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AppButton extends StatelessWidget {
+  String? input1;
+  AppButton({super.key, required this.input1});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomRight,
+      child:
+          // input == null
+          //     ? const SizedBox()
+          //     :
+          Text(
+        input1.toString(),
+        style: const TextStyle(
+          fontSize: 60,
         ),
       ),
     );
