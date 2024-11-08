@@ -9,31 +9,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // int
-  var input;
+  
+  List? input;
   var output;
 
   TextEditingController input1 = TextEditingController();
   TextEditingController input2 = TextEditingController();
 
   inputTeak(var value) {
-    if (input1.text.isEmpty) {
-      setState(() {
-        input1.text = value;
-      });
-    } else {}
+    setState(() {
+      output = value;
+    });
+    // if (input!.isEmpty) {
+
+    // } else {}
   }
-
-  // void equalPressed() {
-  //   String finaluserinput = userInput;
-  //   finaluserinput = userInput.replaceAll('x', '*');
-
-  //   Parser p = Parser();
-  //   Expression exp = p.parse(finaluserinput);
-  //   ContextModel cm = ContextModel();
-  //   double eval = exp.evaluate(EvaluationType.REAL, cm);
-  //   answer = eval.toString();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 height: 200,
                 decoration: const BoxDecoration(),
-                child: AppButton(
-                  input1: input1.text,
-                )),
+                child: AppButton(input1: input.toString())),
             const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,13 +65,17 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 buttonsWidget(() {
-                  inputTeak("7");
+                  inputTeak(9);
                 }, "7"),
                 buttonsWidget(() {
-                  inputTeak("8");
+                  inputTeak(9);
                 }, "8"),
                 buttonsWidget(() {
-                  inputTeak("9");
+                  TextField(
+
+                    controller: input1,
+                  );
+                  inputTeak(9);
                 }, "9"),
                 buttonsWidget(() {}, "X"),
               ],
