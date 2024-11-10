@@ -11,7 +11,7 @@ class AppButton extends StatelessWidget {
       child: Text(
         input1.toString(),
         style: const TextStyle(
-          fontSize: 60,
+          fontSize: 40,
         ),
       ),
     );

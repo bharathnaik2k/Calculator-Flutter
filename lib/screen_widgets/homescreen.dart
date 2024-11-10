@@ -10,42 +10,52 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var input1;
-  var input2;
-  var input;
-
+  String? input;
+  String? input1;
+  String? input2;
   var action;
-  var result;
+  String? result;
 
   inputTeak(var value) {
     if (action == null) {
       setState(() {
-        input1 += value.toString();
-        input += value.toString();
+        input1 = (input1 ?? '') + value.toString();
+        input = (input ?? '') + value.toString();
       });
     } else {
       setState(() {
-        input2 += value.toString();
-        input += value.toString();
+        input2 = (input2 ?? '') + value.toString();
+        input = (input ?? '') + value.toString();
       });
     }
   }
 
   calFunction(var index) {
     setState(() {
-      if (index == 0) {
-        // result = int.parse(input1) % int.parse(input2);
-        setState(() {
-          result = "hppp";
-        });
-      } else if (index == 1) {
-        result = int.parse(input1) / int.parse(input2);
-      } else if (index == 2) {
-        result = int.parse(input1) * int.parse(input2);
-      } else if (index == 3) {
-        result = int.parse(input1) - int.parse(input2);
-      } else if (index == 4) {
-        result = int.parse(input1) + int.parse(input2);
+      if (result == null) {
+        if (index == 0) {
+          result = (double.parse(input1!) % double.parse(input2!)).toString();
+        } else if (index == 1) {
+          result = (double.parse(input1!) / double.parse(input2!)).toString();
+        } else if (index == 2) {
+          result = (double.parse(input1!) * double.parse(input2!)).toString();
+        } else if (index == 3) {
+          result = (double.parse(input1!) - double.parse(input2!)).toString();
+        } else if (index == 4) {
+          result = (double.parse(input1!) + double.parse(input2!)).toString();
+        }
+      } else {
+        if (index == 0) {
+          result = (double.parse(result!) % double.parse(input2!)).toString();
+        } else if (index == 1) {
+          result = (double.parse(result!) / double.parse(input2!)).toString();
+        } else if (index == 2) {
+          result = (double.parse(result!) * double.parse(input2!)).toString();
+        } else if (index == 3) {
+          result = (double.parse(result!) - double.parse(input2!)).toString();
+        } else if (index == 4) {
+          result = (double.parse(result!) + double.parse(input2!)).toString();
+        }
       }
     });
   }
@@ -73,17 +83,20 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               height: 200,
               decoration: const BoxDecoration(),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    AppButton(
-                      input1: input.toString(),
-                    ),
-                    AppButton(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  AppButton(
+                    input1: input == null ? "" : input.toString(),
+                  ),
+                  Visibility(
+                    visible: result == null ? false : true,
+                    child: AppButton(
                       input1: result.toString(),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             const Divider(),
@@ -92,31 +105,33 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 buttonsWidget(() {
                   setState(() {
-                    input1 = "";
-                    input2 = "";
-                    result = "";
-                    input = "";
+                    input1 = null;
+                    input2 = null;
+                    result = null;
+                    input = null;
                     action = null;
                   });
                 }, "C", Colors.orange, Colors.black),
                 buttonsWidget(() {
-                  print(input1.length);
-                  print(input2.length);
-
-                  print(action?.length);
-                  print(action.toString());
-                  print(result.toString());
+                  // print(input1.length);
+                  // print(input2.length);
+                  // print(action?.length);
+                  // print(action.toString());
+                  // print(result.toString());
+                  // if(input2)
                 }, "⌫", Colors.amberAccent, Colors.black),
                 buttonsWidget(() {
                   setState(() {
-                    action = "0";
-                    input += "%";
+                    action = 0;
+                    input = ("${input!}%");
                   });
                 }, "%", const Color.fromARGB(255, 37, 131, 171)),
                 buttonsWidget(() {
                   setState(() {
-                    action = "1";
-                    input += "÷";
+                    action = 1;
+                    input = ("${input!}÷");
+
+                    // input += "";
                   });
                 }, "÷", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -135,8 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 }, "9"),
                 buttonsWidget(() {
                   setState(() {
-                    action = "2";
-                    input += "X";
+                    action = 2;
+                    input = ("${input!}X");
                   });
                 }, "X", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -155,8 +170,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 }, "6"),
                 buttonsWidget(() {
                   setState(() {
-                    action = "3";
-                    input += "-";
+                    action = 3;
+                    // input += "-";
+                    input = ("${input!}-");
                   });
                 }, "-", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -175,8 +191,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 }, "1"),
                 buttonsWidget(() {
                   setState(() {
-                    action = "4";
-                    input += " + ";
+                    action = 4;
+                    // input += " + ";
+                    input = ("${input!}+");
                   });
                 }, "+", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -196,6 +213,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 buttonsWidget(() {
                   setState(() {
                     calFunction(action);
+                    action = null;
+                    input2 = null;
                   });
                 }, "=", Colors.white, Colors.black),
               ],
