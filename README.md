@@ -1,16 +1,29 @@
-# calculator_app_com
+<p align="center">
+  <img src= "https://github.com/bharathnaik2k/Calculator-Flutter/blob/main/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+</p>
 
-A new Flutter project.
+<p align="center">
+    <h1 align="center">Calculator</h1>
+    <h3 align="center">Calculator App Using Flutter With Dart</h3>
+        <h4 align="center">A calculator app is a fundamental application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division</h4>
+</p>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## App Preview
+<img src="https://github.com/bharathnaik2k/Calculator-Flutter/blob/main/preview.png"  />
 
-A few resources to get you started if this is your first Flutter project:
+## Video Preview
+<img src="https://github.com/bharathnaik2k/Calculator-Flutter/blob/main/preview_vid.mp4"  />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Calculator Project Details
+- Basic Arithmetic Operations:
+    - Addition
+    - Subtraction
+    - Multiplication
+    - Division
+- Percentage Calculation:
+    - Calculates percentages
+- Decimal Point:
+    - Allows for decimal numbers
+- Clear Button:
+    - Clears the display
