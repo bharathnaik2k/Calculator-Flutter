@@ -13,7 +13,8 @@
 <img src="https://github.com/bharathnaik2k/Calculator-Flutter/blob/main/preview.png"  />
 
 ## Video Preview
-<img src="https://github.com/bharathnaik2k/Calculator-Flutter/blob/main/preview_vid.mp4"  />
+https://github.com/user-attachments/assets/21972ac0-1e33-4a32-87e3-327369dce28a
+
 
 ## Calculator Project Details
 - Basic Arithmetic Operations:
