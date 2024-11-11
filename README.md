@@ -5,7 +5,7 @@
 <p align="center">
     <h1 align="center">Calculator</h1>
     <h3 align="center">Calculator App Using Flutter With Dart</h3>
-        <h4 align="center">A calculator app is a fundamental application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division</h4>
+        <h4 align="center">A calculator app is a fundamental application that allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, division, and percentage calculations.</h4>
 </p>
 
 
