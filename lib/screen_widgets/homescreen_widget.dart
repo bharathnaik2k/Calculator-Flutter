@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-TextButton buttonsWidget(VoidCallback onPressed, String text,
-    [Color backgroundColor = Colors.white12, Color color = Colors.white]) {
+TextButton buttonsWidget(
+  VoidCallback onPressed,
+  String text, [
+  Color backgroundColor = Colors.white12,
+  Color color = Colors.white,
+]) {
   return TextButton(
     onPressed: onPressed,
     style: ButtonStyle(

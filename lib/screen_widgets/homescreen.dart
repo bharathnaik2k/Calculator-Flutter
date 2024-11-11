@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String? input;
   String? input1;
   String? input2;
-  var action;
+  int? action;
   String? result;
 
   inputTeak(var value) {
@@ -83,20 +83,24 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               height: 200,
               decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  AppButton(
-                    input1: input == null ? "" : input.toString(),
-                  ),
-                  Visibility(
-                    visible: result == null ? false : true,
-                    child: AppButton(
-                      input1: result.toString(),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    AppButton(
+                      input1: input == null ? "" : input.toString(),
+                      color: Colors.white,
                     ),
-                  ),
-                ],
+                    Visibility(
+                      visible: result == null ? false : true,
+                      child: AppButton(
+                        input1: result.toString(),
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const Divider(),
@@ -112,26 +116,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     action = null;
                   });
                 }, "C", Colors.orange, Colors.black),
-                buttonsWidget(() {
-                  // print(input1.length);
-                  // print(input2.length);
-                  // print(action?.length);
-                  // print(action.toString());
-                  // print(result.toString());
-                  // if(input2)
-                }, "⌫", Colors.amberAccent, Colors.black),
+                buttonsWidget(() {}, "⌫", Colors.amberAccent, Colors.black),
                 buttonsWidget(() {
                   setState(() {
                     action = 0;
-                    input = ("${input!}%");
+                    input = ("$input%");
                   });
                 }, "%", const Color.fromARGB(255, 37, 131, 171)),
                 buttonsWidget(() {
                   setState(() {
                     action = 1;
-                    input = ("${input!}÷");
-
-                    // input += "";
+                    input = ("$input÷");
                   });
                 }, "÷", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -151,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 buttonsWidget(() {
                   setState(() {
                     action = 2;
-                    input = ("${input!}X");
+                    input = ("${input}X");
                   });
                 }, "X", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -171,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 buttonsWidget(() {
                   setState(() {
                     action = 3;
-                    // input += "-";
-                    input = ("${input!}-");
+
+                    input = ("$input-");
                   });
                 }, "-", const Color.fromARGB(255, 37, 131, 171)),
               ],
@@ -192,8 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 buttonsWidget(() {
                   setState(() {
                     action = 4;
-                    // input += " + ";
-                    input = ("${input!}+");
+                    input = ("$input+");
                   });
                 }, "+", const Color.fromARGB(255, 37, 131, 171)),
               ],
